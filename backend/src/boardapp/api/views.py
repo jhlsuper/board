@@ -1,11 +1,7 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework import viewsets
 from boardapp.models import Board
 from .serializers import BoardSerializer
 
-class BoardListView(ListAPIView):
+class BoardViewSet(viewsets.ModelViewSet):
+    serializer_class = BoardSerializer 
     queryset = Board.objects.all()
-    serializer_class = BoardSerializer
-
-class BoardDetailView(RetrieveAPIView):
-    queryset = Board.objects.all()
-    serializer_class = BoardSerializer
