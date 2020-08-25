@@ -1,6 +1,8 @@
 import React from 'react';
-import Board from '../components/Board';
+import Board from '../components/Board'
 import axios from 'axios';
+import { Card } from 'antd';
+import CustomForm from '../components/Form';
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -32,7 +34,18 @@ class BoardList extends React.Component {
 
     render() {  
         return (
-            <Board data={this.state.board} />
+            <div>
+                <Card>
+                    <Board data={this.state.board} />
+                    <br />
+                    <h2>게시글을 작성하세요~</h2>
+                    <CustomForm
+                        requestType="post"
+                        boardID={null}
+                        btnText="올리기"
+                    />
+                </Card>
+            </div>
         )
     }
 }
