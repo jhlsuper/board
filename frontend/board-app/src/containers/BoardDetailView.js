@@ -11,7 +11,8 @@ class BoardDetail extends React.Component {
 
     componentDidMount() {
         const boardID = this.props.match.params.boardID; 
-        axios.get('http://127.0.0.1:8000/api/'+String(boardID))
+        //axios.get('http://127.0.0.1:8000/api/'+String(boardID))
+        axios.get('http://127.0.0.1:8000/api/${boardID}')
             .then(res => {
                 this.setState({
                     board: res.data
